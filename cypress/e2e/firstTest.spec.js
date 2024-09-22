@@ -208,6 +208,9 @@ describe('Second suite test', ()=>{
         cy.visit('/')
        //cy.get('nav').find('nb-select').click()
        cy.get('nav nb-select').click()
+       cy.get('.options-list').contains('Dark').click()
+       cy.get('nav nb-select').should('contain', 'Dark')
+
     })
 
 })

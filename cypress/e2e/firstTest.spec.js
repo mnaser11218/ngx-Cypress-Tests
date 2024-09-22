@@ -159,7 +159,7 @@ describe('Second suite test', ()=>{
        
     })
 
-    it.only('Date picker', ()=>{
+    it('Date picker', ()=>{
 
         function selectDayFromCurrent(day){
             let date = new Date()
@@ -168,8 +168,7 @@ describe('Second suite test', ()=>{
             let futureMonth = date.toLocaleDateString('en-US', {month: 'short'})
             let futureYear = date.getFullYear()
             let dateToAssert = `${futureMonth} ${futureDay}, ${futureYear}`
-            // testing 1
-            // testing 2
+      
             cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttribute=>{
                 if(!dateAttribute.includes(futureMonth) || !dateAttribute.includes(futureYear)){
                     cy.get('[data-name="chevron-right"]').click();
@@ -205,12 +204,11 @@ describe('Second suite test', ()=>{
             })
     })  
 
-
-    
-
-
-
-
+    it.only('Lists and dropdowns',()=>{
+        cy.visit('/')
+       //cy.get('nav').find('nb-select').click()
+       cy.get('nav nb-select').click()
+    })
 
 })
 

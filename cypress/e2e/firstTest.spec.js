@@ -245,8 +245,11 @@ describe('Second suite test', ()=>{
             cy.wrap(tableRow).find('.nb-edit').click()
             cy.wrap(tableRow).find('[placeholder="Age"]').clear().type("50")
             cy.wrap(tableRow).find('.nb-checkmark').click()
-            cy.wrap(tableRow).should('contain', "50")
+            cy.wrap(tableRow).find('td').eq(6).should('contain', "50")
         })
+
+        //2 - add user to table
+        cy.get('thead').find('.nb-plus').click()
     })
 
 })

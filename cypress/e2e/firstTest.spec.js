@@ -204,13 +204,38 @@ describe('Second suite test', ()=>{
             })
     })  
 
-    it.only('Lists and dropdowns',()=>{
+    it('Lists and dropdowns',()=>{
         cy.visit('/')
        //cy.get('nav').find('nb-select').click()
+   //1-
        cy.get('nav nb-select').click()
        cy.get('.options-list').contains('Dark').click()
        cy.get('nav nb-select').should('contain', 'Dark')
 
+       // 2- test entire dropdown through loop
+       cy.get('nav nb-select').then(dropdown=> {
+        cy.wrap(dropdown).click()
+       cy.get('.options-list nb-option').each((listItem, index)=>{
+        const itemText = listItem.text().trim()
+        cy.wrap(listItem).click()
+        cy.wrap(dropdown).should('contain', itemText)
+        if(index < 3){
+            cy.wrap(dropdown).click()
+        }
+       })
+       })
+
+    })
+
+    it.only('Web tables', ()=>{
+        cy.visit('/')
+        cy.contains('Tables & Data').click()
+        cy.contains('Smart Table').click()
+        //1 - Get the row by text
+
+        cy.get('tbody').contains('tr', 'Larry').then(tableRow=>{
+            cy.wrap(tableRow).find('.nb-edit').click()
+        })  
     })
 
 })

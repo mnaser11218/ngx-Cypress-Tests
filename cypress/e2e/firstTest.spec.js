@@ -250,6 +250,26 @@ describe('Second suite test', ()=>{
 
         //2 - add user to table
         cy.get('thead').find('.nb-plus').click()
+        cy.get('thead').find('[ng-reflect-name="id"]').type("3")
+        cy.get('thead').find('[ng-reflect-name="firstName"]').type("Mohammed")
+        cy.get('thead').find('[ng-reflect-name="lastName"]').type("Naser")
+        cy.get('thead').find('[ng-reflect-name="username"]').type("@Naser")
+        cy.get('thead').find('[ng-reflect-name="email"]').type("naser@gmail.com")
+        cy.get('thead').find('[ng-reflect-name="age"]').type("50")
+        cy.get('thead').find('.nb-checkmark').click()
+
+        // test that the username was added to the table
+
+        cy.get('tbody').contains('tr', 'Mohammed').then(tableRow=>{
+            cy.wrap(tableRow).find('td').eq(6).should('contain', '50')
+        })
+
+
+
+
+
+
+
     })
 
 })

@@ -233,9 +233,20 @@ describe('Second suite test', ()=>{
         cy.contains('Smart Table').click()
         //1 - Get the row by text
 
-        cy.get('tbody').contains('tr', 'Larry').then(tableRow=>{
+        // cy.get('tbody').contains('tr', 'Larry').then(tableRow=>{
+        //     cy.wrap(tableRow).find('.nb-edit').click()
+        //     cy.wrap(tableRow).find('[placeholder="Last Name"]').clear().type("hi")
+        //     cy.wrap(tableRow).find('.nb-checkmark').click()
+        //     cy.wrap(tableRow).should('contain', 'hi')
+        // })  
+
+        // 1 - change jacobs age to 50 and test it
+        cy.get('tbody').contains('tr', 'Jacob').then(tableRow=>{
             cy.wrap(tableRow).find('.nb-edit').click()
-        })  
+            cy.wrap(tableRow).find('[placeholder="Age"]').clear().type("50")
+            cy.wrap(tableRow).find('.nb-checkmark').click()
+            cy.wrap(tableRow).should('contain', "50")
+        })
     })
 
 })

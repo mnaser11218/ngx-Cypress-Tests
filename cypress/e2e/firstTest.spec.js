@@ -260,10 +260,16 @@ describe('Second suite test', ()=>{
 
         // test that the username was added to the table
 
-        cy.get('tbody').contains('tr', 'Mohammed').then(tableRow=>{
-            cy.wrap(tableRow).find('td').eq(6).should('contain', '50')
+        // cy.get('tbody').contains('tr', 'Mohammed').then(tableRow=>{
+        //     cy.wrap(tableRow).find('td').eq(6).should('contain', '50')
+        // })
+        cy.get('tbody tr').eq(0).find('td').then(dataRow=>{
+            cy.wrap(dataRow).eq(2).should('contain', 'Mohammed')
         })
 
+        cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
+            cy.wrap(tableRow).eq(3).should('contain', 'Naser')
+        })
 
 
 

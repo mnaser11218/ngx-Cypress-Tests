@@ -227,7 +227,7 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('Web tables', ()=>{
+    it('Web tables', ()=>{
         cy.visit('/')
         cy.contains('Tables & Data').click()
         cy.contains('Smart Table').click()
@@ -272,6 +272,20 @@ describe('Second suite test', ()=>{
         })
 // testing
 
+    })
+
+    it.only('test filter age input',()=>{
+        cy.visit('/')
+        cy.contains('Tables & Data').click()
+        cy.contains('Smart Table').click()
+
+        cy.get('thead').find('[placeholder="Age"]').type('20')
+        cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
+            cy.wrap(tableRow).eq(6).as('row')
+            cy.get('@row').should('contain', '20')
+          //  cy.get('@row').find('[class="form-control ng-valid ng-dirty ng-touched"]')
+            //.find('tr').eq(6).should('contain', '20')
+        })
     })
 
 })

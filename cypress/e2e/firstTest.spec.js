@@ -270,11 +270,8 @@ describe('Second suite test', ()=>{
         cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
             cy.wrap(tableRow).eq(3).should('contain', 'Naser')
         })
-// testing
-// testing push
-// testing 
-// tesing 1
 
+// testing
 
 
 

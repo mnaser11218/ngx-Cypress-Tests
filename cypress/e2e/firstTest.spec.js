@@ -288,6 +288,10 @@ describe('Second suite test', ()=>{
           //  cy.get('@row').find('[class="form-control ng-valid ng-dirty ng-touched"]')
             //.find('tr').eq(6).should('contain', '20')
         })
+        cy.get('tbody tr').each(tableRow=>{
+            cy.wrap(tableRow).find('td').eq(6).should('contain', '20')
+        })
+
     })
 
 })

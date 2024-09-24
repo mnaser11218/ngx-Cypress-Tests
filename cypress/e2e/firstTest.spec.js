@@ -280,6 +280,8 @@ describe('Second suite test', ()=>{
         cy.contains('Smart Table').click()
 
         cy.get('thead').find('[placeholder="Age"]').type('20')
+        // create a little delay for cypress to give time for the tbody filtered to update on page
+        cy.wait(500)
         cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
             cy.wrap(tableRow).eq(6).as('row')
             cy.get('@row').should('contain', '20')

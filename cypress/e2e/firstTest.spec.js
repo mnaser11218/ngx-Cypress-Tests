@@ -329,7 +329,9 @@ describe('Second suite test', ()=>{
         cy.contains('Modal & Overlays').click()
         cy.contains('Tooltip').click()
 
-        cy.get('nb-card button').contains('Default').click()
+        //cy.get('nb-card button').contains('Default').click()
+        cy.contains('nb-card', 'Colored Tooltips')
+        .contains('Default').click()
     })
 
 })

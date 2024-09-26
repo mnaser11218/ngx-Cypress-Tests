@@ -291,9 +291,17 @@ describe('Second suite test', ()=>{
         cy.get('tbody tr').each(tableRow=>{
             cy.wrap(tableRow).find('td').eq(6).should('contain', '20')
         })
+        // test that the filter is not including non-filtered numbers
         cy.get('tbody tr').each(tableRow=>{
             cy.wrap(tableRow).find('td').eq(6).should('not.contain', '10')
+
         })
+
+        // test non existent number 
+        cy.get('thead').find('[placeholder="Age"]').type('200')
+        
+
+      
 
     })
 

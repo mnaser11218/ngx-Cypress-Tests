@@ -341,6 +341,7 @@ describe('Second suite test', ()=>{
         cy.contains('Dialog').click()
 
         cy.contains('nb-card', 'Open Dialog')
+        .contains('Open Dialog with component').click()
 
     })
 

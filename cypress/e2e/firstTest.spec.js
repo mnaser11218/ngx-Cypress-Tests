@@ -332,6 +332,7 @@ describe('Second suite test', ()=>{
         //cy.get('nb-card button').contains('Default').click()
         cy.contains('nb-card', 'Colored Tooltips')
         .contains('Default').click()
+        cy.get('nb-tooltip').should('contain', 'This is a tooltip')
     })
 
 })

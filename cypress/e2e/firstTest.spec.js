@@ -288,6 +288,40 @@ describe('Second suite test', ()=>{
           //  cy.get('@row').find('[class="form-control ng-valid ng-dirty ng-touched"]')
             //.find('tr').eq(6).should('contain', '20')
         })
+        cy.get('tbody tr').each(tableRow=>{
+            cy.wrap(tableRow).find('td').eq(6).should('contain', '20')
+        })
+        // test that the filter is not including non-filtered numbers
+        cy.get('tbody tr').each(tableRow=>{
+            cy.wrap(tableRow).find('td').eq(6).should('not.contain', '10')
+
+        })
+
+        // test multiple numbers in an array
+        const numbers = [40, 32, 59, 200]
+        cy.wrap(numbers).each(num=>{
+            cy.get('thead').find('[placeholder="Age"]').clear().type(num)
+            cy.wait(500)
+            cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
+                if(num == 200){
+                    cy.get('tbody tr').should('contain', 'No data found')
+                }else{
+                    cy.wrap(tableRow).eq(6).as('row')
+                    cy.get('@row').should('contain', num)
+                }
+             
+            })
+        })
+       
+
+        // test non existent number 
+        cy.get('thead').find('[placeholder="Age"]').clear().type('200')
+        cy.wait(500)
+        cy.get('tbody tr').should('contain', 'No data found')
+
+
+      
+
     })
 
 })

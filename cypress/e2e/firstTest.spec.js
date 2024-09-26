@@ -274,7 +274,7 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('test filter age input',()=>{
+    it('test filter age input',()=>{
         cy.visit('/')
         cy.contains('Tables & Data').click()
         cy.contains('Smart Table').click()
@@ -322,6 +322,16 @@ describe('Second suite test', ()=>{
 
       
 
+    })
+
+    it.only('tooltip', ()=>{
+        cy.visit('/')
+        cy.contains('Modal & Overlays').click()
+        cy.contains('Tooltip').click()
+
+        //cy.get('nb-card button').contains('Default').click()
+        cy.contains('nb-card', 'Colored Tooltips')
+        .contains('Default').click()
     })
 
 })

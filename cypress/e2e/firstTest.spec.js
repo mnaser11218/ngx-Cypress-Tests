@@ -324,7 +324,7 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('tooltip', ()=>{
+    it('tooltip', ()=>{
         cy.visit('/')
         cy.contains('Modal & Overlays').click()
         cy.contains('Tooltip').click()
@@ -332,6 +332,28 @@ describe('Second suite test', ()=>{
         //cy.get('nb-card button').contains('Default').click()
         cy.contains('nb-card', 'Colored Tooltips')
         .contains('Default').click()
+        cy.get('nb-tooltip').should('contain', 'This is a tooltip')
+    })
+
+    it('dialog',()=>{
+        cy.visit('/')
+        cy.contains('Modal & Overlays').click()
+        cy.contains('Dialog').click()
+
+        cy.contains('nb-card', 'Open Dialog')
+        .contains('Open Dialog with component').click()
+        cy.get('ngx-showcase-dialog nb-card-header').should('contain', 'This is a title passed to the dialog component')
+        cy.contains('button', 'Dismiss Dialog').click()
+
+    })
+
+    it.only('trash button in smart table', ()=>{
+        cy.visit('/')
+        cy.contains('Tables & Data').click()
+        cy.contains('Smart Table').click()
+
+        cy.get('tbody [class="nb-trash"]').first().click()
+
     })
 
 })

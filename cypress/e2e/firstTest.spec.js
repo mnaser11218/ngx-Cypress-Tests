@@ -291,6 +291,9 @@ describe('Second suite test', ()=>{
         cy.get('tbody tr').each(tableRow=>{
             cy.wrap(tableRow).find('td').eq(6).should('contain', '20')
         })
+        cy.get('tbody tr').each(tableRow=>{
+            cy.wrap(tableRow).find('td').eq(6).should('not.contain', '10')
+        })
 
     })
 

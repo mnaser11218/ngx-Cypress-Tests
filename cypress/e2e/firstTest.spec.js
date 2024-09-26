@@ -297,9 +297,28 @@ describe('Second suite test', ()=>{
 
         })
 
+        // test multiple numbers in an array
+        const numbers = [40, 32, 59, 200]
+        cy.wrap(numbers).each(num=>{
+            cy.get('thead').find('[placeholder="Age"]').clear().type(num)
+            cy.wait(500)
+            cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
+                if(num == 200){
+                    cy.get('tbody tr').should('contain', 'No data found')
+                }else{
+                    cy.wrap(tableRow).eq(6).as('row')
+                    cy.get('@row').should('contain', num)
+                }
+             
+            })
+        })
+       
+
         // test non existent number 
-        cy.get('thead').find('[placeholder="Age"]').type('200')
-        
+        cy.get('thead').find('[placeholder="Age"]').clear().type('200')
+        cy.wait(500)
+        cy.get('tbody tr').should('contain', 'No data found')
+
 
       
 

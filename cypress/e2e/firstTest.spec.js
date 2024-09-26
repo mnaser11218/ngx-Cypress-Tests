@@ -342,6 +342,8 @@ describe('Second suite test', ()=>{
 
         cy.contains('nb-card', 'Open Dialog')
         .contains('Open Dialog with component').click()
+        cy.get('ngx-showcase-dialog nb-card-header').should('contain', 'This is a title passed to the dialog component')
+        cy.contains('button', 'Dismiss Dialog').click()
 
     })
 

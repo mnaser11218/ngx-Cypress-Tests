@@ -324,7 +324,7 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('tooltip', ()=>{
+    it('tooltip', ()=>{
         cy.visit('/')
         cy.contains('Modal & Overlays').click()
         cy.contains('Tooltip').click()
@@ -333,6 +333,15 @@ describe('Second suite test', ()=>{
         cy.contains('nb-card', 'Colored Tooltips')
         .contains('Default').click()
         cy.get('nb-tooltip').should('contain', 'This is a tooltip')
+    })
+
+    it.only('dialog',()=>{
+        cy.visit('/')
+        cy.contains('Modal & Overlays').click()
+        cy.contains('Dialog').click()
+
+        cy.contains('nb-card', 'Open Dialog')
+
     })
 
 })

@@ -5,7 +5,7 @@ import { navigateTo } from "../support/page_objects/navigationPage"
 
 describe('Second suite test', ()=>{
     // it describes the body of the test itself
-    it.only('first test', ()=>{
+    it('first test', ()=>{
         cy.visit('/')
         // cy.contains('Forms').click()
         // cy.contains('Form Layouts').click()
@@ -33,11 +33,12 @@ describe('Second suite test', ()=>{
     })
 
 
-    it('second test', ()=>{
+    it.only('second test', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
-
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
+        
 
         // Theory
         // get() - find elements on the page by locator globally (on entire page)
@@ -350,7 +351,7 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('trash button in smart table', ()=>{
+    it('trash button in smart table', ()=>{
         cy.visit('/')
         cy.contains('Tables & Data').click()
         cy.contains('Smart Table').click()

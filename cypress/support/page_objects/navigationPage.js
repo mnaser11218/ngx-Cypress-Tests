@@ -14,15 +14,33 @@ export class NavigationPage{
 
    
 
-    formLayoutPage(){
+        formLayoutPage(){
         selectGroupMenuItem('Form')
         cy.contains('Form Layouts').click()
-    }
-    datePickerPage(){
- selectGroupMenuItem('Form')
-      // cy.contains('Forms').click()
+        }
+         datePickerPage(){
+        selectGroupMenuItem('Form')
         cy.contains('Datepicker').click()
         }
+        smartTable(){
+            selectGroupMenuItem('Tables & Data')
+            cy.contains('Smart Table').click()
+        }
+        toastrPage(){
+            selectGroupMenuItem('Modal & Overlays')
+            cy.contains('Toastr').click()
+        }
+        dialogPage(){
+            selectGroupMenuItem('Modal & Overlays')
+            cy.contains('Dialog').click()
+        }
+        toolTipPage(){
+           selectGroupMenuItem('Modal & Overlays')
+            cy.contains('Tooltip').click()
+        }
+
+
+
     
 }
 export const navigateTo = new NavigationPage()

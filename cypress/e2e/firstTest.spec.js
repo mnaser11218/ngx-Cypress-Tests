@@ -130,7 +130,7 @@ describe('Second suite test', ()=>{
         cy.get('#exampleInputEmail1').invoke('prop', 'value').should('contain', 'test@test.com')
     })
 
-    it.only('radio buttons', ()=>{
+    it('radio buttons', ()=>{
         cy.visit('/')
       navigateTo.formLayoutPage()
 
@@ -147,10 +147,11 @@ describe('Second suite test', ()=>{
             })
     })
 
-    it('checkboxes', ()=> {
+    it.only('checkboxes', ()=> {
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Toastr').click()
+        // cy.contains('Modal & Overlays').click()
+        // cy.contains('Toastr').click()
+        navigateTo.toastrPage()
         // check and uncheck all checkboxes
         // cy.get('[type="checkbox"]').check({force:true})
         // cy.get('[type="checkbox"]').uncheck({force:true})

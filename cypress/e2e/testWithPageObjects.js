@@ -7,6 +7,10 @@ describe('Test with page objects', ()=>{
     it.only('verify navigations across pages', ()=>{
         navigateTo.formLayoutPage()
         navigateTo.datePickerPage()
+        navigateTo.smartTable()
+        navigateTo.toastrPage()
+        navigateTo.toolTipPage()
+        navigateTo.dialogPage()
     })
 
 })

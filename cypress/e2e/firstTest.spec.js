@@ -163,7 +163,7 @@ describe('Second suite test', ()=>{
        
     })
 
-    it.only('Date picker', ()=>{
+    it('Date picker', ()=>{
 
         function selectDayFromCurrent(day){
             let date = new Date()
@@ -230,10 +230,9 @@ describe('Second suite test', ()=>{
 
     })
 
-    it('Web tables', ()=>{
+    it.only('Web tables', ()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+        navigateTo.smartTable()
         //1 - Get the row by text
 
         // cy.get('tbody').contains('tr', 'Larry').then(tableRow=>{

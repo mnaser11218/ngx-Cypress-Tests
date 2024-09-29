@@ -33,7 +33,7 @@ describe('Second suite test', ()=>{
     })
 
 
-    it.only('second test', ()=>{
+    it('second test', ()=>{
         cy.visit('/')
         // cy.contains('Forms').click()
         // cy.contains('Form Layouts').click()
@@ -62,8 +62,9 @@ describe('Second suite test', ()=>{
 
     it('testing email and password validation', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
         // getting the email in using the grib form
         cy.contains('nb-card','Using the Grid')
             .find('[for="inputEmail1"]').should('contain', 'Email')
@@ -98,8 +99,7 @@ describe('Second suite test', ()=>{
     it('extract text value', ()=>{
 
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+      navigateTo.formLayoutPage()
         // multiple ways to check text in tag
         //1- 
         cy.get('[for="exampleInputEmail1"]').should('contain', 'Email address')
@@ -130,10 +130,9 @@ describe('Second suite test', ()=>{
         cy.get('#exampleInputEmail1').invoke('prop', 'value').should('contain', 'test@test.com')
     })
 
-    it('radio buttons', ()=>{
+    it.only('radio buttons', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+      navigateTo.formLayoutPage()
 
         // get the radio button
         // getting the using the grid nb-card

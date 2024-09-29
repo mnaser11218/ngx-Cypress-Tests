@@ -276,10 +276,9 @@ describe('Second suite test', ()=>{
 
     })
 
-    it('test filter age input',()=>{
+    it.only('test filter age input',()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+      navigateTo.smartTable()
 
         cy.get('thead').find('[placeholder="Age"]').type('20')
         // create a little delay for cypress to give time for the tbody filtered to update on page
@@ -328,8 +327,7 @@ describe('Second suite test', ()=>{
 
     it('tooltip', ()=>{
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Tooltip').click()
+   navigateTo.toolTipPage()
 
         //cy.get('nb-card button').contains('Default').click()
         cy.contains('nb-card', 'Colored Tooltips')
@@ -339,8 +337,7 @@ describe('Second suite test', ()=>{
 
     it('dialog',()=>{
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Dialog').click()
+        navigateTo.dialogPage()
 
         cy.contains('nb-card', 'Open Dialog')
         .contains('Open Dialog with component').click()
@@ -351,8 +348,7 @@ describe('Second suite test', ()=>{
 
     it('trash button in smart table', ()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+       navigateTo.smartTable()
 
         cy.get('tbody [class="nb-trash"]').first().click()
         

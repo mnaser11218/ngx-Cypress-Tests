@@ -163,7 +163,7 @@ describe('Second suite test', ()=>{
        
     })
 
-    it('Date picker', ()=>{
+    it.only('Date picker', ()=>{
 
         function selectDayFromCurrent(day){
             let date = new Date()
@@ -187,8 +187,7 @@ describe('Second suite test', ()=>{
         }
 
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Datepicker').click()
+        navigateTo.datePickerPage()
         // when using contains, you can put two arguments to specify exactly where the text is contained
         cy.contains('nb-card','Common Datepicker')
             .find('input').then(input=>{

@@ -1,12 +1,15 @@
  ///<reference types="cypress" />
 
+import { navigateTo } from "../support/page_objects/navigationPage"
+
 
 describe('Second suite test', ()=>{
     // it describes the body of the test itself
     it('first test', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
 
         
         // get element by tag name
@@ -32,9 +35,10 @@ describe('Second suite test', ()=>{
 
     it('second test', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
-
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
+        
 
         // Theory
         // get() - find elements on the page by locator globally (on entire page)
@@ -58,8 +62,9 @@ describe('Second suite test', ()=>{
 
     it('testing email and password validation', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
         // getting the email in using the grib form
         cy.contains('nb-card','Using the Grid')
             .find('[for="inputEmail1"]').should('contain', 'Email')
@@ -94,8 +99,7 @@ describe('Second suite test', ()=>{
     it('extract text value', ()=>{
 
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+      navigateTo.formLayoutPage()
         // multiple ways to check text in tag
         //1- 
         cy.get('[for="exampleInputEmail1"]').should('contain', 'Email address')
@@ -128,8 +132,7 @@ describe('Second suite test', ()=>{
 
     it('radio buttons', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+      navigateTo.formLayoutPage()
 
         // get the radio button
         // getting the using the grid nb-card
@@ -144,10 +147,11 @@ describe('Second suite test', ()=>{
             })
     })
 
-    it('checkboxes', ()=> {
+    it.only('checkboxes', ()=> {
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Toastr').click()
+        // cy.contains('Modal & Overlays').click()
+        // cy.contains('Toastr').click()
+        navigateTo.toastrPage()
         // check and uncheck all checkboxes
         // cy.get('[type="checkbox"]').check({force:true})
         // cy.get('[type="checkbox"]').uncheck({force:true})
@@ -183,8 +187,7 @@ describe('Second suite test', ()=>{
         }
 
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Datepicker').click()
+        navigateTo.datePickerPage()
         // when using contains, you can put two arguments to specify exactly where the text is contained
         cy.contains('nb-card','Common Datepicker')
             .find('input').then(input=>{
@@ -227,10 +230,9 @@ describe('Second suite test', ()=>{
 
     })
 
-    it('Web tables', ()=>{
+    it.only('Web tables', ()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+        navigateTo.smartTable()
         //1 - Get the row by text
 
         // cy.get('tbody').contains('tr', 'Larry').then(tableRow=>{
@@ -274,10 +276,9 @@ describe('Second suite test', ()=>{
 
     })
 
-    it('test filter age input',()=>{
+    it.only('test filter age input',()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+      navigateTo.smartTable()
 
         cy.get('thead').find('[placeholder="Age"]').type('20')
         // create a little delay for cypress to give time for the tbody filtered to update on page
@@ -326,8 +327,7 @@ describe('Second suite test', ()=>{
 
     it('tooltip', ()=>{
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Tooltip').click()
+   navigateTo.toolTipPage()
 
         //cy.get('nb-card button').contains('Default').click()
         cy.contains('nb-card', 'Colored Tooltips')
@@ -337,8 +337,7 @@ describe('Second suite test', ()=>{
 
     it('dialog',()=>{
         cy.visit('/')
-        cy.contains('Modal & Overlays').click()
-        cy.contains('Dialog').click()
+        navigateTo.dialogPage()
 
         cy.contains('nb-card', 'Open Dialog')
         .contains('Open Dialog with component').click()
@@ -347,13 +346,12 @@ describe('Second suite test', ()=>{
 
     })
 
-    it.only('trash button in smart table', ()=>{
+    it('trash button in smart table', ()=>{
         cy.visit('/')
-        cy.contains('Tables & Data').click()
-        cy.contains('Smart Table').click()
+       navigateTo.smartTable()
 
         cy.get('tbody [class="nb-trash"]').first().click()
-
+        
     })
 
 })

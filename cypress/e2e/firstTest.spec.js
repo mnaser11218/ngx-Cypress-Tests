@@ -1,12 +1,15 @@
  ///<reference types="cypress" />
 
+import { navigateTo } from "../support/page_objects/navigationPage"
+
 
 describe('Second suite test', ()=>{
     // it describes the body of the test itself
-    it('first test', ()=>{
+    it.only('first test', ()=>{
         cy.visit('/')
-        cy.contains('Forms').click()
-        cy.contains('Form Layouts').click()
+        // cy.contains('Forms').click()
+        // cy.contains('Form Layouts').click()
+        navigateTo.formLayoutPage()
 
         
         // get element by tag name
@@ -353,7 +356,7 @@ describe('Second suite test', ()=>{
         cy.contains('Smart Table').click()
 
         cy.get('tbody [class="nb-trash"]').first().click()
-
+        
     })
 
 })

@@ -2,14 +2,16 @@ import { navigateTo } from "./navigationPage"
 
 export class FormLayoutsPage{
 
-submitInlineFormWithNameAndEmail(){
+submitInlineFormWithNameAndEmail(name, email){
     console.log("inside method")
     navigateTo.formLayoutPage()
     cy.contains('nb-card',  'Inline form').find('form').then(nbCard=>{
-        cy.wrap(nbCard).find('[placeholder="Jane Doe"]').type('testing')
-        cy.wrap(nbCard).find('[placeholder="Email"]').type('testing@gmail.com')
+        cy.wrap(nbCard).find('[placeholder="Jane Doe"]').type(name)
+        cy.wrap(nbCard).find('[placeholder="Email"]').type(email)
         cy.wrap(nbCard).find('[type="checkbox"]').check({force:true})
-        cy.wrap(nbCard).submit()
+      //  cy.wrap(nbCard).find('[type="submit"]').click()
+      cy.wrap(nbCard).submit()
+
 
     })
 }

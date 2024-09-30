@@ -15,7 +15,7 @@ describe('Test with page objects', ()=>{
     })
 
     it.only('should submit Inline and Basic form and select tomorrow date in the calendar', ()=> {
-        onFormLayoutsPage.submitInlineFormWithNameAndEmail()
+        onFormLayoutsPage.submitInlineFormWithNameAndEmail('mohammed', 'mohammed@gmail.com')
     })
 
 })

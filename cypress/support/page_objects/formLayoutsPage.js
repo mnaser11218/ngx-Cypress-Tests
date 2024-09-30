@@ -11,10 +11,15 @@ submitInlineFormWithNameAndEmail(name, email){
         cy.wrap(nbCard).find('[type="checkbox"]').check({force:true})
       //  cy.wrap(nbCard).find('[type="submit"]').click()
       cy.wrap(nbCard).submit()
+    })        
+    }
+
+    submitBasicFormWithEmailAndPassword(email, password){
+        navigateTo.formLayoutPage()
+        
 
 
-    })
-}
+    }
 
 
 }

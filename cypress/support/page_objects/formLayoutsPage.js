@@ -16,7 +16,9 @@ submitInlineFormWithNameAndEmail(name, email){
     submitBasicFormWithEmailAndPassword(email, password){
       //  navigateTo.formLayoutPage()
         cy.contains('nb-card', 'Basic form').find('form').then(form=>{
-
+        cy.wrap(form).find('[type="email"]').type(email)
+        cy.wrap(form).find('[type="password"]').type(password)
+       // cy.wrap(form).find('[class="custom-checkbox"]').check()
         })
     }
 

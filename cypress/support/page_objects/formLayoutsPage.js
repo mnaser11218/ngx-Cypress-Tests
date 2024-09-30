@@ -3,8 +3,7 @@ import { navigateTo } from "./navigationPage"
 export class FormLayoutsPage{
 
 submitInlineFormWithNameAndEmail(name, email){
-    console.log("inside method")
-    navigateTo.formLayoutPage()
+    //navigateTo.formLayoutPage()
     cy.contains('nb-card',  'Inline form').find('form').then(nbCard=>{
         cy.wrap(nbCard).find('[placeholder="Jane Doe"]').type(name)
         cy.wrap(nbCard).find('[placeholder="Email"]').type(email)
@@ -15,10 +14,10 @@ submitInlineFormWithNameAndEmail(name, email){
     }
 
     submitBasicFormWithEmailAndPassword(email, password){
-        navigateTo.formLayoutPage()
-        
+      //  navigateTo.formLayoutPage()
+        cy.contains('nb-card', 'Basic form').find('form').then(form=>{
 
-
+        })
     }
 
 

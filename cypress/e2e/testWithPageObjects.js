@@ -23,7 +23,7 @@ describe('Test with page objects', ()=>{
         onFormLayoutsPage.submitBasicFormWithEmailAndPassword('email@gmail.com', 'testing123')
         // then test for user to select tomorrow date in calendar in datepicker page
         navigateTo.datePickerPage()
-        onDatePickerPage.selectDateinCalendar('54')
+        onDatePickerPage.selectDateinCalendar('5')
          
     })
     

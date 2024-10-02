@@ -20,22 +20,35 @@ export class DatePickerPage{
         return dateToAssert;
         
     }
-selectDateinCalendar(dayFromToday){
+selectDateinCalendarfromToday(dayFromToday){
 console.log("inside select date in calendar function")
-cy.contains("nb-card", "Common Datepicker").find('[placeholder="Form Picker"]').then(form=>{
-    cy.wrap(form).click()
+cy.contains("nb-card", "Common Datepicker").find('[placeholder="Form Picker"]').then(input=>{
+    cy.wrap(input).click()
     let date = this.selectDayFromCurrent(dayFromToday)
-cy.wrap(form).invoke('prop', 'value').should('contain', date)
+cy.wrap(input).invoke('prop', 'value').should('contain', date)
+cy.wrap(input).should('have.value', date)
 // cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{
 //     cy.get('.day-cell').not('bounding-month').contains(date).click()
 //     cy.wrap(form).invoke('prop', 'value').should('eq', 'Oct 5, 2024')
 // })
-
-
-
-
-
 })
+}
+
+selectDatePickerWithRangerFromToday(){
+    console.log("inside select date in calendar function")
+cy.contains("nb-card", "Datepicker With Range").find('[placeholder="Range Picker"]').then(input=>{
+    cy.wrap(input).click()
+//     let date = this.selectDayFromCurrent(dayFromToday)
+// cy.wrap(input).invoke('prop', 'value').should('contain', date)
+// cy.wrap(input).should('have.value', date)
+
+// testing a specific date of the month: 
+// cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{
+//     cy.get('.day-cell').not('bounding-month').contains(date).click()
+//     cy.wrap(form).invoke('prop', 'value').should('eq', 'Oct 5, 2024')
+// })
+})
+
 }
 
 

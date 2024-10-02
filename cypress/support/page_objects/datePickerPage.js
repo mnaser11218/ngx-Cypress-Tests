@@ -20,18 +20,16 @@ export class DatePickerPage{
         return dateToAssert;
         
     }
-selectDateinCalendar(date){
+selectDateinCalendar(dayFromToday){
 console.log("inside select date in calendar function")
 cy.contains("nb-card", "Common Datepicker").find('[placeholder="Form Picker"]').then(form=>{
     cy.wrap(form).click()
-   // cy.wrap(form).contains("nb-calendar-day-cell", date).click()
-  // let date = this.selectDayFromCurrent(7);
-//    cy.wrap(form).invoke('prop', 'value').should('contain', date)
-//cy.wrap(form).invoke('prop', 'value').should('contain', date)
-cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{
-    cy.get('.day-cell').not('bounding-month').contains(date).click()
-    cy.wrap(form).invoke('prop', 'value').should('eq', 'Oct 5, 2024')
-})
+    let date = this.selectDayFromCurrent(dayFromToday)
+cy.wrap(form).invoke('prop', 'value').should('contain', date)
+// cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{
+//     cy.get('.day-cell').not('bounding-month').contains(date).click()
+//     cy.wrap(form).invoke('prop', 'value').should('eq', 'Oct 5, 2024')
+// })
 
 
 

@@ -27,6 +27,7 @@ cy.contains("nb-card", "Common Datepicker").find('[placeholder="Form Picker"]').
     let date = this.selectDayFromCurrent(dayFromToday)
 cy.wrap(input).invoke('prop', 'value').should('contain', date)
 cy.wrap(input).should('have.value', date)
+
 // cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{
 //     cy.get('.day-cell').not('bounding-month').contains(date).click()
 //     cy.wrap(form).invoke('prop', 'value').should('eq', 'Oct 5, 2024')
@@ -34,11 +35,15 @@ cy.wrap(input).should('have.value', date)
 })
 }
 
-selectDatePickerWithRangerFromToday(){
+selectDatePickerWithRangerFromToday(firstDay, secondDay){
     console.log("inside select date in calendar function")
 cy.contains("nb-card", "Datepicker With Range").find('[placeholder="Range Picker"]').then(input=>{
     cy.wrap(input).click()
-//     let date = this.selectDayFromCurrent(dayFromToday)
+    cy.get('nb-calendar-navigation').click()
+    //  let dateAssertFirst = this.selectDayFromCurrent(firstDay)
+    //  let dateAssertSecond = this.selectDayFromCurrent(secondDay)
+    
+     
 // cy.wrap(input).invoke('prop', 'value').should('contain', date)
 // cy.wrap(input).should('have.value', date)
 

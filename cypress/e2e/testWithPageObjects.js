@@ -24,7 +24,7 @@ describe('Test with page objects', ()=>{
         // then test for user to select tomorrow date in calendar in datepicker page
         navigateTo.datePickerPage()
         onDatePickerPage.selectDateinCalendarfromToday('5')
-        onDatePickerPage.selectDatePickerWithRangerFromToday()
+        onDatePickerPage.selectDatePickerWithRangerFromToday('3', '9')
          
     })
     

@@ -11,7 +11,7 @@ export class DatePickerPage{
         cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttribute=>{
             if(!dateAttribute.includes(futureMonth) || !dateAttribute.includes(futureYear)){
                 cy.get('[data-name="chevron-right"]').click();
-                selectDayFromCurrent(day)
+                this.selectDayFromCurrent(day)
             }else{
                 cy.get('.day-cell').not('bounding-month').contains(futureDay).click()
 

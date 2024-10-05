@@ -34,6 +34,7 @@ describe('Test with page objects', ()=>{
         navigateTo.smartTable()
        onSmartTablePage.addFirstNameAndLastNameToTable("mohammed", "naser")
        onSmartTablePage.updateAgeByFirstName("mohammed", 50)
+       onSmartTablePage.deleteRowByIndex(2)
     })
     
 

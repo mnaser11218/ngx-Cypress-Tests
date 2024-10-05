@@ -42,10 +42,11 @@ cy.contains("nb-card", "Datepicker With Range").find('input').then(input=>{
    // cy.get('nb-calendar-navigation').click()
      let dateAssertFirst = this.selectDayFromCurrent(firstDay)
     let dateAssertSecond = this.selectDayFromCurrent(secondDay)
-    
+    let finalDate = dateAssertFirst + ' - ' + dateAssertSecond
+
      
-// cy.wrap(input).invoke('prop', 'value').should('contain', date)
-// cy.wrap(input).should('have.value', date)
+cy.wrap(input).invoke('prop', 'value').should('contain', finalDate)
+cy.wrap(input).should('have.value', finalDate)
 
 // testing a specific date of the month: 
 // cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttr=>{

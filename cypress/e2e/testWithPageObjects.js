@@ -1,6 +1,7 @@
 import { onFormLayoutsPage } from "../support/page_objects/formLayoutsPage"
 import { navigateTo } from "../support/page_objects/navigationPage"
 import {onDatePickerPage} from "../support/page_objects/datePickerPage"
+import { onSmartTablePage } from "../support/page_objects/smartTablePage"
 
 describe('Test with page objects', ()=>{
     beforeEach('open application', ()=>{
@@ -31,6 +32,7 @@ describe('Test with page objects', ()=>{
     it.only('adding, removing and updating user in smart table', ()=>{
 
         navigateTo.smartTable()
+       onSmartTablePage.addUserToTable("mohammed", "naser", "@nam", "mnas@gmail.com", 7 )
     })
     
 

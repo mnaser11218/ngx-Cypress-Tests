@@ -9,22 +9,22 @@ export class SmartTable {
         })
     }
 
-    addUserToTable(firstName, lastName, username, email, age){
+    addFirstNameAndLastNameToTable(firstName, lastName){
         cy.get('thead').find('.nb-plus').click()
-        cy.get('thead').find('[ng-reflect-name="id"]').type("1")
+       // cy.get('thead').find('[ng-reflect-name="id"]').type("1")
         cy.get('thead').find('[ng-reflect-name="firstName"]').type(firstName)
         cy.get('thead').find('[ng-reflect-name="lastName"]').type(lastName)
-        cy.get('thead').find('[ng-reflect-name="username"]').type(username)
-        cy.get('thead').find('[ng-reflect-name="email"]').type(email)
-        cy.get('thead').find('[ng-reflect-name="age"]').type(age)
+       // cy.get('thead').find('[ng-reflect-name="username"]').type(username)
+       // cy.get('thead').find('[ng-reflect-name="email"]').type(email)
+       // cy.get('thead').find('[ng-reflect-name="age"]').type(age)
         cy.get('thead').find('.nb-checkmark').click()
 
         cy.get('tbody tr').eq(0).find('td').then(dataRow=>{
-            cy.wrap(dataRow).eq(2).should('contain', 'Mohammed')
+            cy.wrap(dataRow).eq(2).should('contain', firstName)
         })
 
         cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
-            cy.wrap(tableRow).eq(3).should('contain', 'Naser')
+            cy.wrap(tableRow).eq(3).should('contain', lastName)
         })
 
     }

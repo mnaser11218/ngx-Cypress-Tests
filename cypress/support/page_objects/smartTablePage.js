@@ -19,6 +19,14 @@ export class SmartTable {
         cy.get('thead').find('[ng-reflect-name="age"]').type(age)
         cy.get('thead').find('.nb-checkmark').click()
 
+        cy.get('tbody tr').eq(0).find('td').then(dataRow=>{
+            cy.wrap(dataRow).eq(2).should('contain', 'Mohammed')
+        })
+
+        cy.get('tbody tr').eq(0).find('td').then(tableRow=>{
+            cy.wrap(tableRow).eq(3).should('contain', 'Naser')
+        })
+
     }
 
 

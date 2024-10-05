@@ -4,7 +4,7 @@ export class DatePickerPage{
         let date = new Date()
         date.setDate(date.getDate() + day)
         let futureDay = date.getDate()
-        let futureMonth = date.toLocaleDateString('en-US', {month: 'short'})
+        let futureMonth = date.toLocaleDateString('default', {month: 'short'})
         let futureYear = date.getFullYear()
         let dateToAssert = `${futureMonth} ${futureDay}, ${futureYear}`
   
@@ -13,7 +13,7 @@ export class DatePickerPage{
                 cy.get('[data-name="chevron-right"]').click();
                 this.selectDayFromCurrent(day)
             }else{
-                cy.get('.day-cell').not('bounding-month').contains(futureDay).click()
+                cy.get('.day-cell').not('.bounding-month').contains(futureDay).click()
 
             }
         })
@@ -35,13 +35,13 @@ cy.wrap(input).should('have.value', date)
 })
 }
 
-selectDatePickerWithRangerFromToday(firstDay, secondDay){
+selectDatePickerWithRangeFromToday(firstDay, secondDay){
     console.log("inside select date in calendar function")
-cy.contains("nb-card", "Datepicker With Range").find('[placeholder="Range Picker"]').then(input=>{
+cy.contains("nb-card", "Datepicker With Range").find('input').then(input=>{
     cy.wrap(input).click()
-    cy.get('nb-calendar-navigation').click()
-    //  let dateAssertFirst = this.selectDayFromCurrent(firstDay)
-    //  let dateAssertSecond = this.selectDayFromCurrent(secondDay)
+   // cy.get('nb-calendar-navigation').click()
+     let dateAssertFirst = this.selectDayFromCurrent(firstDay)
+    let dateAssertSecond = this.selectDayFromCurrent(secondDay)
     
      
 // cy.wrap(input).invoke('prop', 'value').should('contain', date)

@@ -32,8 +32,9 @@ describe('Test with page objects', ()=>{
     it.only('adding, removing and updating user in smart table', ()=>{
 
         navigateTo.smartTable()
-       onSmartTablePage.addUserToTable("mohammed", "naser", "@nam", "mnas@gmail.com", 7 )
+       onSmartTablePage.addFirstNameAndLastNameToTable("mohammed", "naser")
        onSmartTablePage.updateAgeByFirstName("mohammed", 50)
+       onSmartTablePage.deleteRowByIndex(2)
     })
     
 

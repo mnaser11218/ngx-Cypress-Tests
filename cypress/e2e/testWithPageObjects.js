@@ -33,6 +33,7 @@ describe('Test with page objects', ()=>{
 
         navigateTo.smartTable()
        onSmartTablePage.addUserToTable("mohammed", "naser", "@nam", "mnas@gmail.com", 7 )
+       onSmartTablePage.updateAgeByFirstName("mohammed", 50)
     })
     
 

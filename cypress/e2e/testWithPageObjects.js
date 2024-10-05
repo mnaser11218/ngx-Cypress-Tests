@@ -15,7 +15,7 @@ describe('Test with page objects', ()=>{
         navigateTo.dialogPage()
     })
 
-    it.only('should submit Inline and Basic form and select tomorrow date in the calendar', ()=> {
+    it('should submit Inline and Basic form and select tomorrow date in the calendar', ()=> {
         navigateTo.formLayoutPage()
         // first test for user to submit inline form in layoutpage
         onFormLayoutsPage.submitInlineFormWithNameAndEmail('mohammed', 'mohammed@gmail.com')
@@ -25,7 +25,12 @@ describe('Test with page objects', ()=>{
         navigateTo.datePickerPage()
         onDatePickerPage.selectDateinCalendarfromToday(1)
        onDatePickerPage.selectDatePickerWithRangeFromToday(7, 9)
-         
+        
+    })
+
+    it.only('adding, removing and updating user in smart table', ()=>{
+
+        navigateTo.smartTable()
     })
     
 

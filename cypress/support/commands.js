@@ -35,7 +35,7 @@
 //     }
 //   }
 // }
-
+// custom method to openhome page
 Cypress.Commands.add('openHomePage', ()=>{
     cy.visit('/')
 })

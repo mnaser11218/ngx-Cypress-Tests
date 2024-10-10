@@ -40,6 +40,3 @@ Cypress.Commands.add('openHomePage', ()=>{
     cy.visit('/')
 })
 
-// Cypress.Commands.add('open', ()=>{
-//     cy.visit('/')
-// })
